@@ -1,12 +1,23 @@
 # Basic examples for a Linux desktop or workstation
 * [Prerequsites](#prerequsites)
  * [Run examples](#run-examples)
+<<<<<<< HEAD
      * [1. SPSC-GPU: a single pod with a single container accesses a GPU via ResourceClaimTemplate](#example-1-spsc-gpu-a-single-pod-with-a-single-container-accesses-a-gpu-via-resourceclaimtemplate)
      * [2. SPMC-Shared-GPU: a single pod's multiple containers share a GPU via ResourceClaimTemplate](#example-2-spmc-shared-gpu-a-single-pods-multiple-containers-share-a-gpu-via-resourceclaimtemplate)
      * [3. MPSC-Shared-GPU: multiple pods, each with a single container, share a GPU via ResourceClaim](#example-3-mpsc-shared-gpu-multiple-pods-each-with-a-single-container-share-a-gpu-via-resourceclaim)
      * [4. MPSC-Unshared-GPU: multiple pods, each with a single container, request dedicated GPU access](#example-4-mpsc-unshared-gpu-multiple-pods-each-with-a-single-container-request-dedicated-gpu-access)
      * [5. SPMC-MPS-GPU: a single pod's multiple containers share a GPU via MPS](#example-5-spmc-mps-gpu-a-single-pods-multiple-containers-share-a-gpu-via-mps)
      * [6. MPSC-MPS-GPU: multiple pods, each with a single container, share a GPU via MPS](#example-6-mpsc-mps-gpu-multiple-pods-each-with-a-single-containershare-a-gpu-via-mps)
+=======
+     * [1. SPSC-GPU: a single pod accesses a GPU via ResourceClaimTemplate](#example-1-spsc-gpu-a-single-pod-accesses-a-gpu-via-resourceclaimtemplate)
+     * [2. SPMC-Shared-GPU: a single pod's multiple containers share a GPU via ResourceClaimTemplate](#example-2-spmc-shared-gpu-a-single-pods-multiple-containers-share-a-gpu-via-resourceclaimtemplate)
+     * [3. MPSC-Shared-GPU: multiple pods share a GPU via ResourceClaim](#example-3-mpsc-shared-gpu-multiple-pods-share-a-gpu-via-resourceclaim)
+     * [4. MPSC-Unshared-GPU: multiple pods request dedicated GPU access](#example-4-mpsc-unshared-gpu-multiple-pods-request-dedicated-gpu-access)
+     * [5. SPMC-MPS-GPU: a single pod's multiple containers share a GPU via MPS](#example-5-spmc-mps-gpu-a-single-pods-multiple-containers-share-a-gpu-via-mps)
+     * [6. MPSC-MPS-GPU: multiple pods share a GPU via MPS](#example-6-mpsc-mps-gpu-multiple-pods-share-a-gpu-via-mps)
+     * [7. SPMC-TimeSlicing-GPU: a singile pod's multiple containers share a GPU via TimeSlicing](#example-7-spmc-timeslicing-gpu-a-single-pods-multiple-containers-share-a-gpu-via-timeslicing)
+     * [8. MPSC-TimeSlicing-GPU: multiple pods share a GPU via TimeSlicing](#example-8-mpsc-timeslicing-gpu-multiple-pods-multiple-containers-share-a-gpu-via-timeslicing)
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ## Prerequsites
 
@@ -52,7 +63,11 @@ nvidia-k8s-dra-driver-kubelet-plugin-qqq5b          1/1     Running   0         
 
 ## Run examples
 
+<<<<<<< HEAD
 #### Example 1 (SPSC-GPU): a single pod with a single container accesses a GPU via ResourceClaimTemplate
+=======
+#### Example 1 (SPSC-GPU): a single pod  accesses a GPU via ResourceClaimTemplate
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ```console
 kubectl apply -f single-pod-single-container-gpu.yaml
@@ -62,8 +77,13 @@ kubectl get pods -n spsc-gpu-test
 
 The pod will be running.
 ```
+<<<<<<< HEAD
 # NAME      READY   STATUS    RESTARTS   AGE
 # gpu-pod   1/1     Running   0          6s
+=======
+NAME      READY   STATUS    RESTARTS   AGE
+gpu-pod   1/1     Running   0          6s
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Running `nvidia-smi` will show something like the following:
@@ -72,6 +92,7 @@ nvidia-smi
 ```
 
 ```
+<<<<<<< HEAD
 # +---------------------------------------------------------------------------------------+
 # | Processes:                                                                            |
 # |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -79,6 +100,15 @@ nvidia-smi
 # |=======================================================================================|
 # |    0   N/A  N/A   1474787      C   /cuda-samples/sample                        746MiB |
 # +---------------------------------------------------------------------------------------+
+=======
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A   1474787      C   /cuda-samples/sample                        746MiB |
++---------------------------------------------------------------------------------------+
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Delete the pod:
@@ -96,8 +126,13 @@ kubectl get pods -n spmc-shared-gpu-test
 
 The pod will be running.
 ```
+<<<<<<< HEAD
 # NAME      READY   STATUS    RESTARTS      AGE
 # gpu-pod   2/2     Running   2 (55s ago)   2m13s
+=======
+NAME      READY   STATUS    RESTARTS      AGE
+gpu-pod   2/2     Running   2 (55s ago)   2m13s
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Running `nvidia-smi` will show something like the following:
@@ -105,6 +140,7 @@ Running `nvidia-smi` will show something like the following:
 nvidia-smi
 ```
 ```
+<<<<<<< HEAD
 # +---------------------------------------------------------------------------------------+
 # | Processes:                                                                            |
 # |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -113,6 +149,16 @@ nvidia-smi
 # |    0   N/A  N/A   1514114      C   /cuda-samples/sample                        746MiB |
 # |    0   N/A  N/A   1514167      C   /cuda-samples/sample                        746MiB |
 # +---------------------------------------------------------------------------------------+
+=======
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A   1514114      C   /cuda-samples/sample                        746MiB |
+|    0   N/A  N/A   1514167      C   /cuda-samples/sample                        746MiB |
++---------------------------------------------------------------------------------------+
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Delete the pod:
@@ -120,7 +166,11 @@ Delete the pod:
 kubectl delete -f single-pod-single-container-gpu.yaml
 ```
 
+<<<<<<< HEAD
 #### Example 3 (MPSC-Shared-GPU): multiple pods, each with a single container, share a GPU via ResourceClaim
+=======
+#### Example 3 (MPSC-Shared-GPU): multiple pods share a GPU via ResourceClaim
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ```console
 kubectl apply -f multiple-pods-single-container-shared-gpu.yaml
@@ -130,10 +180,17 @@ kubectl get pods -n mpsc-shared-gpu-test
 
 Two pods will be running.
 ```
+<<<<<<< HEAD
 # $ kubectl get pods -n mpsc-shared-gpu-test
 # NAME        READY   STATUS    RESTARTS   AGE
 # gpu-pod-1   1/1     Running   0          11s
 # gpu-pod-2   1/1     Running   0          11s
+=======
+$ kubectl get pods -n mpsc-shared-gpu-test
+NAME        READY   STATUS    RESTARTS   AGE
+gpu-pod-1   1/1     Running   0          11s
+gpu-pod-2   1/1     Running   0          11s
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Running `nvidia-smi` will show something like the following:
@@ -141,6 +198,7 @@ Running `nvidia-smi` will show something like the following:
 nvidia-smi
 ```
 ```
+<<<<<<< HEAD
 # +---------------------------------------------------------------------------------------+
 # | Processes:                                                                            |
 # |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -148,6 +206,15 @@ nvidia-smi
 # |    0   N/A  N/A   1551456      C   /cuda-samples/sample                    746MiB     |
 # |    0   N/A  N/A   1551593      C   /cuda-samples/sample                    746MiB     |
 # |=======================================================================================|
+=======
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|    0   N/A  N/A   1551456      C   /cuda-samples/sample                    746MiB     |
+|    0   N/A  N/A   1551593      C   /cuda-samples/sample                    746MiB     |
+|=======================================================================================|
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Delete the pods:
@@ -155,7 +222,11 @@ Delete the pods:
 kubectl delete -f multiple-pods-single-container-shared-gpu.yaml
 ```
 
+<<<<<<< HEAD
 #### Example 4 (MPSC-Unshared-GPU): multiple pods, each with a single container, request dedicated GPU access
+=======
+#### Example 4 (MPSC-Unshared-GPU): multiple pods request dedicated GPU access
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ```console
 kubectl apply -f multiple-pods-single-container-unshared-gpu.yaml
@@ -165,10 +236,17 @@ kubectl get pods -n mpsc-unshared-gpu-test
 
 One pod will be running and the other one is pending.
 ```
+<<<<<<< HEAD
 # $ kubectl get pods -n mpsc-unshared-gpu-test
 # NAME        READY   STATUS    RESTARTS   AGE
 # gpu-pod-1   1/1     Running   0          11s
 # gpu-pod-2   1/1     Pending   0          11s
+=======
+$ kubectl get pods -n mpsc-unshared-gpu-test
+NAME        READY   STATUS    RESTARTS   AGE
+gpu-pod-1   1/1     Running   0          11s
+gpu-pod-2   1/1     Pending   0          11s
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Running `nvidia-smi` will show something like the following:
@@ -176,12 +254,21 @@ Running `nvidia-smi` will show something like the following:
 nvidia-smi
 ```
 ```
+<<<<<<< HEAD
 # +---------------------------------------------------------------------------------------+
 # | Processes:                                                                            |
 # |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
 # |        ID   ID                                                             Usage      |
 # |    0   N/A  N/A   1544488      C   /cuda-samples/sample                    746MiB     |
 # |=======================================================================================|
+=======
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|    0   N/A  N/A   1544488      C   /cuda-samples/sample                    746MiB     |
+|=======================================================================================|
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Delete the pods:
@@ -199,9 +286,15 @@ kubectl get pods -n spmc-mps-gpu-test
 
 The pod will be running.
 ```
+<<<<<<< HEAD
 # $ kubectl get pods -n mpsc-unshared-gpu-test
 # NAME        READY   STATUS    RESTARTS   AGE
 # gpu-pod-1   2/2     Running   0          11s
+=======
+$ kubectl get pods -n mpsc-mps-gpu-test
+NAME        READY   STATUS    RESTARTS   AGE
+gpu-pod-1   2/2     Running   0          11s
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Running `nvidia-smi` will show something like the following:
@@ -209,6 +302,7 @@ Running `nvidia-smi` will show something like the following:
 nvidia-smi
 ```
 ```
+<<<<<<< HEAD
 # +---------------------------------------------------------------------------------------+
 # | Processes:                                                                            |
 # |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -218,6 +312,17 @@ nvidia-smi
 # |    0   N/A  N/A   1559585      C   nvidia-cuda-mps-server                   28MiB     |
 # |    0   N/A  N/A   1559610    M+C   /cuda-samples/sample                     790MiB    |
 # +---------------------------------------------------------------------------------------+
+=======
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A   1559554    M+C   /cuda-samples/sample                     790MiB    |
+|    0   N/A  N/A   1559585      C   nvidia-cuda-mps-server                   28MiB     |
+|    0   N/A  N/A   1559610    M+C   /cuda-samples/sample                     790MiB    |
++---------------------------------------------------------------------------------------+
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Delete the pod:
@@ -225,7 +330,11 @@ Delete the pod:
 kubectl delete -f single-pod-multiple-containers-mps-gpu.yaml
 ```
 
+<<<<<<< HEAD
 #### Example 6 (MPSC-MPS-GPU): multiple pods, each with a single container,share a GPU via MPS 
+=======
+#### Example 6 (MPSC-MPS-GPU): multiple pods share a GPU via MPS 
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ```console
 kubectl apply -f multiple-pods-single-container-mps-gpu.yaml
@@ -235,10 +344,17 @@ kubectl get pods -n mpsc-mps-gpu-test
 
 Two pods will be running and the other one is pending.
 ```
+<<<<<<< HEAD
 # $ kubectl get pods -n mpsc-unshared-gpu-test
 # NAME        READY   STATUS    RESTARTS   AGE
 # gpu-pod-1   1/1     Running   0          11s
 # gpu-pod-2   1/1     Running   0          11s
+=======
+$ kubectl get pods -n mpsc-mps-gpu-test
+NAME        READY   STATUS    RESTARTS   AGE
+gpu-pod-1   1/1     Running   0          11s
+gpu-pod-2   1/1     Running   0          11s
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Running `nvidia-smi` will show something like the following:
@@ -246,6 +362,7 @@ Running `nvidia-smi` will show something like the following:
 nvidia-smi
 ```
 ```
+<<<<<<< HEAD
 # +---------------------------------------------------------------------------------------+
 # | Processes:                                                                            |
 # |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -255,9 +372,94 @@ nvidia-smi
 # |    0   N/A  N/A   1568771    M+C   /cuda-samples/sample                        562MiB |
 # |    0   N/A  N/A   1568831      C   nvidia-cuda-mps-server                       28MiB |
 # +---------------------------------------------------------------------------------------+
+=======
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A   1568768    M+C   /cuda-samples/sample                        562MiB |
+|    0   N/A  N/A   1568771    M+C   /cuda-samples/sample                        562MiB |
+|    0   N/A  N/A   1568831      C   nvidia-cuda-mps-server                       28MiB |
++---------------------------------------------------------------------------------------+
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 ```
 
 Delete the pods:
 ```console
 kubectl delete -f multiple-pods-single-container-mps-gpu.yaml
 ```
+<<<<<<< HEAD
+=======
+
+#### Example 7 (SPMC-TimeSlicing-GPU):a single pod's multiple containers share a GPU via TimeSlicing 
+
+```console
+kubectl apply -f single-pod-multiple-containers-timeslicing-gpu.yaml
+sleep 2
+kubectl get pods -n spmc-timeslicing-gpu-test
+```
+
+Two pods will be running and the other one is pending.
+```
+$ kubectl get pods -n spmc-timeslicing-gpu-test
+NAME        READY   STATUS    RESTARTS   AGE
+gpu-pod     1/1     Running   0          11s
+```
+
+Run `nvidia-smi` will show something like the following (2 containers sharing the GPU):
+```console
+nvidia-smi
+```
+```
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A    306436      C   /cuda-samples/sample                        746MiB |
+|    0   N/A  N/A    306442      C   ./gpu_burn                                21206MiB |
++---------------------------------------------------------------------------------------+```
+```
+
+Delete the pods:
+```console
+kubectl delete -f single-pod-multiple-containers-timeslicing-gpu.yaml
+```
+
+#### Example 8 (MPSMP-TimeSlicing-GPU): multiple pods share a GPU via TimeSlicing 
+
+```console
+kubectl apply -f multiple-pods-single-container-timeslicing-gpu.yaml
+sleep 2
+kubectl get pods -n mpsc-timeslicing-gpu-test
+```
+
+Two pods will be running and the other one is pending.
+```
+$ kubectl get pods -n mpsc-timeslicing-gpu-test 
+NAME        READY   STATUS    RESTARTS   AGE
+gpu-pod-1     1/1     Running   0          11s
+gpu-pod-2     1/1     Running   0          11s
+```
+
+Run `nvidia-smi` will show something like the following (2 containers sharing the GPU):
+```console
+nvidia-smi
+```
+```
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A    306436      C   /cuda-samples/sample                        746MiB |
+|    0   N/A  N/A    306442      C   ./gpu_burn                                21206MiB |
++---------------------------------------------------------------------------------------+```
+```
+
+Delete the pods:
+```console
+kubectl delete -f multiple-pods-single-containers-timeslicing-gpu.yaml
+```
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)

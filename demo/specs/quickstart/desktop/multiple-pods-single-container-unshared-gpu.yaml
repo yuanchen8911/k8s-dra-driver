@@ -50,6 +50,10 @@ spec:
   - name: gpu
     source:
       resourceClaimTemplateName: gpu.nvidia.com
+<<<<<<< HEAD
+=======
+  restartPolicy: Never
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ---
 apiVersion: v1
@@ -71,3 +75,7 @@ spec:
   - name: gpu
     source:
       resourceClaimTemplateName: gpu.nvidia.com
+<<<<<<< HEAD
+=======
+  restartPolicy: Never
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)

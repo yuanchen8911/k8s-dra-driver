@@ -71,6 +71,10 @@ spec:
   - name: gpu
     source:
       resourceClaimName: gpu-mps-sharing
+<<<<<<< HEAD
+=======
+  restartPolicy: Never
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
 
 ---
 apiVersion: v1
@@ -92,3 +96,7 @@ spec:
   - name: gpu
     source:
       resourceClaimName: gpu-mps-sharing
+<<<<<<< HEAD
+=======
+  restartPolicy: Never
+>>>>>>> 655f0c8 (Update logic to set environment for calls out to nvidia-smi)
